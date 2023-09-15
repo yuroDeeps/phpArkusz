@@ -19,7 +19,7 @@
             <ol>
                 <?php
                     $db = mysqli_connect("localhost","root","","karp");
-                    $sql = "SELECT ryby.nazwa, lowisko.akwen, lowisko.wojewodztwo FROM ryby, lowisko WHERE lowisko.Ryby_id = ryby.id AND lowisko.rodzaj = 3;";
+                    $sql = "SELECT ryby.nazwa, lowisko.akwen, lowisko.wojewodztwo FROM ryby JOIN lowisko ON lowisko.Ryby_id = ryby.id WHERE lowisko.rodzaj = 3;";
                     $r = mysqli_query($db, $sql);
                     while($w = mysqli_fetch_row($r)){
                         echo "<li>".$w[0]." pływa w rzece ".$w[1].", ".$w[2]."</li>";
